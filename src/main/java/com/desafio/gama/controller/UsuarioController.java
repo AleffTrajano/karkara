@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.desafio.gama.domain.Usuario;
 import com.desafio.gama.service.UsuarioService;
 
+import javassist.tools.rmi.ObjectNotFoundException;
+
 @RestController
 @RequestMapping(path ="/usuarios")
 public class UsuarioController {
@@ -18,10 +20,9 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService service;
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<?>find(@PathVariable Integer id) {
+	public ResponseEntity<?>find(@PathVariable Integer id) throws ObjectNotFoundException {
 		
 		Usuario obj = service.buscar(id);
-		
 		return ResponseEntity.ok().body(obj);
 	}
 	
