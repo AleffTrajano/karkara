@@ -18,6 +18,7 @@ import javassist.tools.rmi.ObjectNotFoundException;
 public class UsuarioController {
 	
 	@Autowired
+	
 	private UsuarioService service;
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<?>find(@PathVariable Integer id) throws ObjectNotFoundException {

@@ -34,6 +34,19 @@ public class UsuarioService {
 		updateData(newObj, obj);
 		return repo.save(newObj);
 	}
+	
+	private void updateData(Usuario newObj, Usuario obj) {
+		newObj.setNome(obj.getNome());
+	}
+	public List<Usuario> findAll() {
+		return repo.findAll();
+	}
+	
+	public Page<Usuario> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		return repo.findAll(pageRequest);
+	}
+
 
 	public void delete(Integer id) throws Exception {
 		buscar(id);
@@ -42,18 +55,6 @@ public class UsuarioService {
 		} catch (DataIntegrityViolationException e) {
 			throw new Exception("Não é possível excluir uma categoria que possui produtos");
 		}
-	}
-
-	public List<Usuario> findAll() {
-		return repo.findAll();
-	}
-
-	public Page<Usuario> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
-		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
-		return repo.findAll(pageRequest);
-	}
-
-	private void updateData(Usuario newObj, Usuario obj) {
-		newObj.setNome(obj.getNome());
+	
 	}
 }

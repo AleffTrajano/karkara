@@ -15,12 +15,13 @@ public class KarkaraApplication  implements CommandLineRunner{
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	///private ViagemRepository viagemRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(KarkaraApplication.class, args);
 	}
 
-	//criando instaciaçoes para teste
+	//criando instanciaçoes para teste
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
@@ -29,7 +30,10 @@ public class KarkaraApplication  implements CommandLineRunner{
 		Usuario user2 = new Usuario(null,"maiaa");
 		Usuario user3 = new Usuario(null,"ticole");
 		
+		//Viagem via = new Viagem();
+		
 		usuarioRepository.saveAll(Arrays.asList(user,user1,user2,user3));
+		//viagemRepository.saveAll(Arrays.asList(via));
 	}
 	
 	}
