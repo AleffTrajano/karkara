@@ -57,7 +57,7 @@ public class SwaggerConfig {
 		apiInfoBuilder.licenseUrl("http://www.gama.com.br");
 		apiInfoBuilder.contact(this.contato());
 		
-		String contato = "Gleyson Telefeone \\ Jose \\ Maria";
+		String contato = "Aleff Diniz \\ João \\ Wendell";
 		return apiInfoBuilder;
  
 	}
